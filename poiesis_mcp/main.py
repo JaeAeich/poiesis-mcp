@@ -6,6 +6,9 @@ import sys
 from mcp.server.fastmcp import FastMCP
 
 from poiesis_mcp.constants import get_constants
+from poiesis_mcp.tools.create_task import create_task
+from poiesis_mcp.tools.get_task import get_task
+from poiesis_mcp.tools.wait import wait_for_task
 
 
 # Configure logging with more detailed format
@@ -111,6 +114,7 @@ All tools provide structured responses with clear guidance for next steps.
     server = FastMCP(
         name="Poiesis TES MCP Server",
         instructions=instructions,
+        tools=[create_task, wait_for_task, get_task],
         host=constants.MCP_HOST,
         port=constants.MCP_PORT,
     )
